@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>相框</title>
+<style>
+	*{margin:0; padding:0;}
+	li{list-style:none;}
+	.container{
+		width:696px;
+		border:1px solid gray;
+		margin:0 auto;
+	}
+	ul{ width:626px;
+	height:202px;
+	overflow:hidden;
+	margin:0 auto;
+	background:#00CCCC;}
+	ul li{ float:left;}
+	.p01{ width:208px;
+		  height:202px;
+		  background-color:#CCFF66;}
+	.line01{ width:1px;
+			 height:202px;
+			 background-color:gray;
+			 position:relative;
+			 left:208px;}
+	.line02{ width:1px;
+			 height:202px;
+			 background-color:gray;
+			 position:relative;
+			 right:208px;}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<ul>
+			<li class="line01"></li>
+			<li class="p01"></li>
+			<li class="p01"></li>
+			<li class="p01"></li>
+			<li class="line02"></li>
+		</ul>
+	</div>
+
+</body>
+</html>
