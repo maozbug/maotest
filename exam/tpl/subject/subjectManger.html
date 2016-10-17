@@ -1,0 +1,83 @@
+
+    <div class="editingarea">
+        <div class="c_flex"><span class="c_flexible"></span></div>
+        <div class="c_editview">
+            <div class="c_condition">
+                <span><select><option>题干</option></select></span>
+                <span class="pl5 " ><input type="text"></span>
+                <span class="pl15 pr15 btn_gray ">查找</span>
+                <span class="icon_lead-in"><em class="icon_r">批量导入题目</em></span>
+                <span class="icon_add"><em class="icon_r" ng-click="add()">单个添加题目</em></span>
+            </div>
+            <div class="divtable">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tablea">
+                    <tr>
+                        <td align="center" style="width: 50px;">题型</td>
+                        <td align="left">
+                            <div class="chose">
+                                <a href="" change class="active3">全部</a>
+                                <a href="" change value="{{type.id}}" name="{{type.name}}" ng-repeat="type in types" >{{type.realName}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">方向</td>
+                        <td align="left">
+                            <div class="chose">
+                                <a href="" change class="active3">全部</a>
+                                <a href="" ng-model="department.name" change value="{{dep.id}}" name="{{dep.name}}" ng-repeat="dep in Departmentes">{{dep.name}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">知识点</td>
+                        <td align="left">
+                            <div class="chose">
+                                <a href="" change class="active3">全部</a>
+                                <a href="" change value="{{tpc.id}}" name="{{tpc.department.name}}" ng-repeat="tpc in Topics |filter :department">{{tpc.title}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">难度</td>
+                        <td align="left">
+                            <div class="chose">
+                                <a href="" change class="active3">全部</a>
+                                <a href="" change value="{{lv.id}}" name="{{lv.name}}" ng-repeat="lv in Level">{{lv.realName}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="Catalog">
+                <div class="Catalog_right">
+                    <div class="Catalogtitle">总计<em>15552</em>道题&nbsp;&nbsp;提示：单击体面可显示答案和解析&nbsp;&nbsp;<input type="checkbox" ng-model="isshow" /><b>显示答案和解析</b>&nbsp;&nbsp;<div><a href="#" class="Thispage2">本页全部审核通过</a><i>1</i><a href="#" class="pageone">前</a><a href="#" class="pagetwo">后</a></div></div>
+                    <div class="Catalog_rightnei" ng-repeat="sub in Subjects">
+                        <div class="Catalogtitwo"><b>题号：</b>{{sub.id}}&nbsp;&nbsp;<b>题型：</b>{{sub.subjectType.realName}}&nbsp;&nbsp;<b>难度：</b>{{sub.subjectLevel.realName}}&nbsp;&nbsp;<b>上传人：</b>{{sub.user}}&nbsp;&nbsp;<b>来源：</b>{{}}&nbsp;&nbsp;<b>上传时间:</b>{{sub.uploadTime}}&nbsp;&nbsp;<b>组卷次数：</b><em>{{sub.examPaper}}</em></div>
+                        <div class="Catalogcontent">
+                            <div class="Catalogcontentup">
+                                <!--题干-->
+                                <h4>{{$index+1}}、{{sub.stem}}</h4>
+                                <!--题目选项-->
+                                <ul>
+                                    <li ng-repeat="choice in sub.choices">
+                                        {{choice.no}}. {{choice.content}}
+                                    </li>
+                                </ul>
+                                <div ng-show="isshow">
+                                    <b>答案：</b>
+                                    {{sub.answer}}<br>
+                                    <b>解析：</b>
+                                    {{sub.analysis}}
+                                </div>
+
+                            </div>
+                            <div class="Catalogcontentdown"><a href="#">审核通过</a><a href="#">审核不通过</a><a href="#">删除题目</a></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
